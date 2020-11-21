@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hotel Template">
+    <meta name="keywords" content="Hotel, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MyHotel</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+<div layout:fragment="content">
+
+    <!-- About Us Section Begin -->
+    <section class="about-us spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="about-left">
+                        <div class="section-title">
+                            <span>a memorable holliday</span>
+                            <h2>A great stay in a <br />lovely hotel.</h2>
+                        </div>
+                        <p class="second-text">
+                        	A hotel management platform intended for everyone who wishes to
+                        	consult hotels online according to the price, type, number of people, 
+                        	city, duration and popularity of hotels. 
+                        	Our app gives hotels the opportunity 
+                        	to present their information to customers. 
+                        	It is a web application accessible 24h / 24h.
+                        </p>
+                        <p>                       	
+                        	Our application is a site for research and price comparisons for 
+                        	accommodation offers. From lavish five-star hotels to more intimate vacation rentals, 
+                        	the accommodation options are endless. We are not party to any reservation agreement between
+                        	 customers and the site or hotel with which customers book. We do not receive any payment for stays.
+							In total, it brings together more than 90 hotels and other types of accommodation in Morocco.
+                        </p>
+                        <a href="/" class="primary-btn">Make a Reservation</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7">
+                            <div class="about-img">
+                                <img src="img/about/about-1.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5">
+                            <div class="about-img second-img">
+                                <img src="img/about/about-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5 col-md-5">
+                            <div class="about-img third-img">
+                                <img src="img/about/about-3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-md-7">
+                            <div class="about-img">
+                                <img src="img/about/about-4.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Us Section End -->
+
+    <!-- Milestone Counter Section Begin -->
+    <section class="milestone-counter spad set-bg" data-setbg="img/about/milestone-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mc-item">
+                        <div class="mc-num">
+                            <span class="counter" th:text="${count}"></span>
+                        </div>
+                        <div class="mc-text">
+                            <h3>Luxury Suites</h3>
+                            <p>From $<b th:text="${prix}"></b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mc-item">
+                        <div class="mc-num">
+                            <span class="counter">35</span>
+                            <strong>K</strong>
+                        </div>
+                        <div class="mc-text">
+                            <h3>Happy Clients</h3>
+                            <p>all year long</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mc-item">
+                        <div class="mc-num">
+                            <span class="counter">365</span>
+                        </div>
+                        <div class="mc-text">
+                            <h3>Days/ Year</h3>
+                            <p>From $<b th:text="${prix}"></b></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Milestone Counter Section End -->
+
+</div>
+</body>
+
+</html>

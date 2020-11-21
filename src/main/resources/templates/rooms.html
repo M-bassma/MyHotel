@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zxx" xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="layout">
+
+<head>
+	<meta charset="utf-8"/>
+    <title>MyHotel</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{css/style.css}"/>
+    <meta name="description" content="Hotel Template">
+    <meta name="keywords" content="Hotel, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+<div layout:fragment="content">
+    
+
+    <!-- Room Section Begin -->
+    <section class="room-section" th:if="${listHotelVille}">
+        <div class="container-fluid">
+        <div  th:each="hotel, state : ${listHotelVille}">
+            <div class="row" th:if="${state.index % 2 ==0 && hotel.getPrix(temp,number)!=-1}">
+                <div class="col-lg-6">
+                    <div class="ri-slider-item">
+                        <div class="ri-sliders owl-carousel">
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-1.jpg"></div>
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-2.jpg"></div>
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-3.jpg"></div>
+                            <!--<div class="single-img set-bg" th:attr="data-setbg=${ hotel.images }"></div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="ri-text">
+                        <div class="section-title">
+                            <div class="section-title">
+                                <span>a memorable holliday</span>
+                                <h2 th:text="${hotel.libelle}"></h2>
+                            </div>
+                            <div>
+                                <img src="img/placeholder.png" alt="" style="height: 20px;width: 20px;"><label style="margin-left: 10px;color: #9d9d9d;" th:text="${hotel.distance}"></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.rating}"></span>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p th:text="${hotel.goodness}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.viewers}"></span>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p>Viewer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.getPrix(temp,number)}"></span>
+                                            <strong>$</strong>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p>/room</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="GuestBook">
+                                    <h5>GUESTBOOK</h5>
+                                    <div th:each="chambre : ${hotel.getChambres()}">
+                                    	<b th:text="${chambre.getEtat()}"></b>
+                                    </div>
+                            </div>
+                            <div class="ri-features">
+                                <div class="ri-info">
+                                    <i class="flaticon-019-television"></i>
+                                    <p>Smart TV</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-029-wifi"></i>
+                                    <p>High Wi-fii</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-003-air-conditioner"></i>
+                                    <p>AC</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-036-parking"></i>
+                                    <p>Parking</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-007-swimming-pool"></i>
+                                    <p>Pool</p>
+                                </div>
+                            </div>
+                            <a href="#" class="primary-btn">Make a Reservation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" th:if="${state.index % 2 !=0 && hotel.getPrix(temp,number)!=-1}">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="ri-slider-item">
+                        <div class="ri-sliders owl-carousel">
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-2.jpg"></div>
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-3.jpg"></div>
+                            <div class="single-img set-bg" data-setbg="img/rooms/room-4.jpg"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="ri-text left-side">
+                        <div class="section-title">
+                            <div class="section-title">
+                                <span>a memorable holliday</span>
+                                <h2 th:text="${hotel.libelle}"></h2>
+                            </div>
+                            <div>
+                                <img src="img/placeholder.png" alt="" style="height: 20px;width: 20px;"><label style="margin-left: 10px;color: #9d9d9d;"  th:text="${hotel.distance}"></label>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.rating}"></span>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p th:text="${hotel.goodness}"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.viewers}"></span>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p>Viewer</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mc-room">
+                                        <div class="mc-num">
+                                            <span class="counter" th:text="${hotel.getPrix(temp,number)}"></span>
+                                            <strong>$</strong>
+                                        </div>
+                                        <div class="mc-text">
+                                            <p>/room</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="GuestBook">
+                                    <h5>GUESTBOOK</h5>
+                                    <div th:each="chambre : ${hotel.getChambres()}">
+                                    	<b th:text="${chambre.getEtat()}"></b>
+                                    </div>
+                            </div>
+                            <div class="ri-features">
+                                <div class="ri-info">
+                                    <i class="flaticon-019-television"></i>
+                                    <p>Smart TV</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-029-wifi"></i>
+                                    <p>High Wi-fii</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-003-air-conditioner"></i>
+                                    <p>AC</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-036-parking"></i>
+                                    <p>Parking</p>
+                                </div>
+                                <div class="ri-info">
+                                    <i class="flaticon-007-swimming-pool"></i>
+                                    <p>Pool</p>
+                                </div>
+                            </div>
+                            <a href="#" class="primary-btn">Make a Reservation</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </div>
+    </section>
+    <!-- Room Section End -->
+    <section class="room-section" th:unless="${listHotelVille}">
+    	<p>Veuillez entrer les elements</p>
+    </section>
+</div>
+</body>
+
+</html>
